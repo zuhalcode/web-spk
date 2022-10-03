@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar-hover {
+    content: "";
+    @apply hover:before:w-1 hover:before:h-full hover:before:bg-red-500 hover:before:absolute hover:before:inset-0;
+}
+
+.sidebar-active {
+    content: "";
+    @apply before:w-1 before:h-full before:bg-red-500 before:absolute before:inset-0;
+}
