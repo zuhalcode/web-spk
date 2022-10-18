@@ -1,17 +1,20 @@
+import { capitalizeEachWord } from "@/Utils/function";
 import { Link } from "@inertiajs/inertia-react";
 import { useRef } from "react";
 
 export default function Sidebar() {
-    const listMenuPenilaian = [
-        "data pegawai",
-        "departemen",
-        "data variabel",
-        "rule fuzzy",
-        "penilaian",
+    const listTopsisMenu = [
+        "matriks normalisasi",
+        "bobot normalisasi",
+        "matriks ideal",
+        "jarak solusi ideal",
+        "nilai preferensi",
     ];
 
-    const penilaianMenuRef = useRef();
-    const keputusanMenuRef = useRef();
+    const kriteriaMenuRef = useRef();
+    const alternatifMenuRef = useRef();
+    const matriksMenuRef = useRef();
+    const topsisMenuRef = useRef();
 
     const arrowLeft = (
         <svg
@@ -48,65 +51,109 @@ export default function Sidebar() {
         }
     };
 
-    const penilaianOnclick = (e) => {
+    const kriteriaOnclick = (e) => {
         classToggle(e);
-        penilaianMenuRef.current.classList.toggle("hidden");
+        kriteriaMenuRef.current.classList.toggle("hidden");
     };
 
-    const keputusanOnclick = (e) => {
+    const alternatifOnclick = (e) => {
         classToggle(e);
-        keputusanMenuRef.current.classList.toggle("hidden");
+        alternatifMenuRef.current.classList.toggle("hidden");
+    };
+
+    const matriksOnclick = (e) => {
+        classToggle(e);
+        matriksMenuRef.current.classList.toggle("hidden");
+    };
+
+    const topsisOnclick = (e) => {
+        classToggle(e);
+        topsisMenuRef.current.classList.toggle("hidden");
     };
 
     return (
         <div className="w-[300px] ">
             <h1 className="uppercase px-3 py-2 bg-gray-800 font-bold text-2xl text-white text-center">
-                Fuzzy Website
+                SPK TOPSIS
             </h1>
             <ul className="min-h-[568px] bg-black font-bold text-white ">
                 <li
                     className="sidebar-hover relative hover:bg-[#2b332d] cursor-pointer flex justify-between px-2 items-center uppercase"
-                    onClick={(e) => penilaianOnclick(e)}
+                    onClick={(e) => kriteriaOnclick(e)}
                 >
-                    <p className="mx-2 py-3 px-3">Penilaian</p>
+                    <p className="mx-2 py-3 px-3">Kriteria</p>
                     {arrowLeft}
                 </li>
-
                 <ul
                     className="w-full hidden bg-gray-800 transition-all duration-500"
-                    ref={penilaianMenuRef}
+                    ref={kriteriaMenuRef}
                 >
-                    {listMenuPenilaian.map((menu, index) => (
-                        <li
-                            key={index}
-                            className="relative hover:bg-[#05220b] cursor-pointer flex justify-between px-2 items-center"
-                        >
-                            <Link href={menu.split(" ").join("-")}>
-                                <p className="mx-2 py-3 px-3">
-                                    {menu.charAt(0).toUpperCase() +
-                                        menu.slice(1).toLowerCase()}
-                                </p>
-                            </Link>
-                        </li>
-                    ))}
+                    <li className="relative hover:bg-[#05220b] cursor-pointer flex justify-between px-2 items-center">
+                        <Link href={"/data-alternatif"}>
+                            <p className="mx-2 py-3 px-3">Data Kriteria</p>
+                        </Link>
+                    </li>
                 </ul>
 
                 <li
                     className="sidebar-hover relative hover:bg-[#151916] cursor-pointer flex justify-between px-2 items-center uppercase"
-                    onClick={(e) => keputusanOnclick(e)}
+                    onClick={(e) => alternatifOnclick(e)}
                 >
-                    <p className="mx-2 py-3 px-3">Keputusan</p>
+                    <p className="mx-2 py-3 px-3">Alternatif</p>
                     {arrowLeft}
                 </li>
                 <ul
                     className="w-full hidden bg-gray-800 transition-all duration-500"
-                    ref={keputusanMenuRef}
+                    ref={alternatifMenuRef}
                 >
                     <li className="relative hover:bg-[#05220b] cursor-pointer flex justify-between px-2 items-center">
-                        <Link href={"hasil-analisa"}>
-                            <p className="mx-2 py-3 px-3">Hasil Analisa</p>
+                        <Link href={"/data-alternatif"}>
+                            <p className="mx-2 py-3 px-3">Data Alternatif</p>
                         </Link>
                     </li>
+                </ul>
+
+                <li
+                    className="sidebar-hover relative hover:bg-[#151916] cursor-pointer flex justify-between px-2 items-center uppercase"
+                    onClick={(e) => matriksOnclick(e)}
+                >
+                    <p className="mx-2 py-3 px-3">Nilai Matriks</p>
+                    {arrowLeft}
+                </li>
+                <ul
+                    className="w-full hidden bg-gray-800 transition-all duration-500"
+                    ref={matriksMenuRef}
+                >
+                    <li className="relative hover:bg-[#05220b] cursor-pointer flex justify-between px-2 items-center">
+                        <Link href={"/data-matriks"}>
+                            <p className="mx-2 py-3 px-3">Data Matriks</p>
+                        </Link>
+                    </li>
+                </ul>
+
+                <li
+                    className="sidebar-hover relative hover:bg-[#151916] cursor-pointer flex justify-between px-2 items-center uppercase"
+                    onClick={(e) => topsisOnclick(e)}
+                >
+                    <p className="mx-2 py-3 px-3">Hasil Topsis</p>
+                    {arrowLeft}
+                </li>
+                <ul
+                    className="w-full hidden bg-gray-800 transition-all duration-500"
+                    ref={topsisMenuRef}
+                >
+                    {listTopsisMenu.map((menu, index) => (
+                        <li
+                            key={index}
+                            className="relative hover:bg-[#05220b] cursor-pointer flex justify-between px-2 items-center"
+                        >
+                            <Link href={`/${menu.split(" ").join("-")}`}>
+                                <p className="mx-2 py-3 px-3 w-full">
+                                    {capitalizeEachWord(menu)}
+                                </p>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </ul>
         </div>

@@ -11,3 +11,17 @@
     content: "";
     @apply before:w-1 before:h-full before:bg-red-500 before:absolute before:inset-0;
 }
+
+.table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-responsive {
+    min-height: 0.01%;
+    overflow-x: auto;
+}

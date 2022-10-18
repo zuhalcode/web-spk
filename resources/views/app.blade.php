@@ -17,6 +17,11 @@
 
 <body class="font-sans antialiased">
     @inertia
+
+    <script>
+        let csrf_token = '{{ csrf_token() }}';
+    </script>
 </body>
+
 
 </html>
