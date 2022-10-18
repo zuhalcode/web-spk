@@ -51,6 +51,7 @@ class MatriceController extends Controller
             'c4' => 'required',
             'c5' => 'required',
         ]));
+
         return back();
     }
 
