@@ -58,7 +58,7 @@ class TopsisController extends Controller
         $normalizeWeight = [];
         foreach($this->normalize() as $n) {
             for($i=0; $i<count($weight); $i++) {
-                $n[$i+1] = $n[$i+1] * $weight[$i];
+                $n[$i+1] = round($n[$i+1] * $weight[$i], 3);
             }
             array_push($normalizeWeight, $n);
         }
