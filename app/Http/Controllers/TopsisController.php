@@ -178,7 +178,9 @@ class TopsisController extends Controller
 
     public function preferenceValue()
     {
-        return Inertia::render('Topsis/NilaiPreferensi');
+        return Inertia::render('Topsis/NilaiPreferensi', [
+            'dplusmin' => $this->dplusmin()
+        ]);
     }
 
 }
