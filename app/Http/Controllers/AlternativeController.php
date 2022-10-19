@@ -27,7 +27,8 @@ class AlternativeController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Alternatif/TambahData');
+        return Inertia::render('Alternatif/TambahData', [
+        ]);
     }
 
     /**
@@ -38,7 +39,14 @@ class AlternativeController extends Controller
      */
     public function store(Request $req)
     {
-        Alternative::create($req->validate(['name' => 'required']));
+        Alternative::create($req->validate([
+            'name' => 'required',
+            'poin1' => 'required',
+            'poin2' => 'required',
+            'poin3' => 'required',
+            'poin4' => 'required',
+            'poin5' => 'required',
+        ]));
         return back();
     }
 

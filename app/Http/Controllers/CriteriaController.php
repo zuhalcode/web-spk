@@ -41,11 +41,6 @@ class CriteriaController extends Controller
         $validatedData = $req->validate([
             'name' => 'required',
             'weight' => 'required',
-            'poin1' => 'required',
-            'poin2' => 'required',
-            'poin3' => 'required',
-            'poin4' => 'required',
-            'poin5' => 'required',
             'type' => 'required',
         ]);
 

@@ -33,9 +33,9 @@ Route::resource('/data-matriks', MatriceController::class);
 
 Route::controller(TopsisController::class)->group(fn() => [
     Route::get('/matriks-normalisasi', 'matriceNormalize'),
-    Route::get('/bobot-normalisasi', 'weightNormalize'),
-    Route::get('/matriks-ideal', 'idealMatrice'),
-    Route::get('/jarak-solusi-ideal', 'idealSolution'),
+    Route::get('/normalisasi-terbobot', 'weightNormalize'),
+    Route::get('/jarak-solusi-ideal', 'idealMatrice'),
+    Route::get('/solusi-ideal', 'idealSolution'),
     Route::get('/nilai-preferensi', 'preferenceValue'),
 ]);
 

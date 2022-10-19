@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('alternatives', function (Blueprint $table) {
+        Schema::create('normalizes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->float('poin1');
-            $table->float('poin2');
-            $table->float('poin3');
-            $table->float('poin4');
-            $table->float('poin5');
+            $table->string('alternative');
+            $table->float('c1');
+            $table->float('c2');
+            $table->float('c3');
+            $table->float('c4');
+            $table->float('c5');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alternatives');
+        Schema::dropIfExists('normalizes');
     }
 };

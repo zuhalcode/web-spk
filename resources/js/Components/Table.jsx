@@ -18,10 +18,15 @@ export default function Table({ head = [], data = [], type = "" }) {
                         key={index}
                         className="border-b border-gray-200 hover:bg-gray-100"
                     >
-                        {type === "Alternatif" ? (
+                        {type === "alt" ? (
                             <>
                                 <TableData text={index + 1} />
                                 <TableData text={data.name} />
+                                <TableData text={data.poin1} />
+                                <TableData text={data.poin2} />
+                                <TableData text={data.poin3} />
+                                <TableData text={data.poin4} />
+                                <TableData text={data.poin5} />
                             </>
                         ) : (
                             <>
@@ -31,11 +36,7 @@ export default function Table({ head = [], data = [], type = "" }) {
                                     textCenter={false}
                                 />
                                 <TableData text={data.weight} />
-                                <TableData text={data.poin1} />
-                                <TableData text={data.poin2} />
-                                <TableData text={data.poin3} />
-                                <TableData text={data.poin4} />
-                                <TableData text={data.poin5} />
+
                                 <TableData text={data.type} />
                             </>
                         )}

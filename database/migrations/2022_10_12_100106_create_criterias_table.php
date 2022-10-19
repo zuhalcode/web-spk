@@ -17,11 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('weight');
-            $table->string('poin1');
-            $table->string('poin2');
-            $table->string('poin3');
-            $table->string('poin4');
-            $table->string('poin5');
             $table->string('type')->default('benefit');
             $table->timestamps();
         });

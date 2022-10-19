@@ -5,8 +5,8 @@ import { useRef } from "react";
 export default function Sidebar() {
     const listTopsisMenu = [
         "matriks normalisasi",
-        "bobot normalisasi",
-        "matriks ideal",
+        "normalisasi terbobot",
+        "solusi ideal",
         "jarak solusi ideal",
         "nilai preferensi",
     ];
@@ -89,7 +89,7 @@ export default function Sidebar() {
                     ref={kriteriaMenuRef}
                 >
                     <li className="relative hover:bg-[#05220b] cursor-pointer flex justify-between px-2 items-center">
-                        <Link href={"/data-alternatif"}>
+                        <Link href={"/data-kriteria"}>
                             <p className="mx-2 py-3 px-3">Data Kriteria</p>
                         </Link>
                     </li>
@@ -113,7 +113,7 @@ export default function Sidebar() {
                     </li>
                 </ul>
 
-                <li
+                {/* <li
                     className="sidebar-hover relative hover:bg-[#151916] cursor-pointer flex justify-between px-2 items-center uppercase"
                     onClick={(e) => matriksOnclick(e)}
                 >
@@ -129,7 +129,7 @@ export default function Sidebar() {
                             <p className="mx-2 py-3 px-3">Data Matriks</p>
                         </Link>
                     </li>
-                </ul>
+                </ul> */}
 
                 <li
                     className="sidebar-hover relative hover:bg-[#151916] cursor-pointer flex justify-between px-2 items-center uppercase"

@@ -1,14 +1,12 @@
-import TableMatriks from "@/Components/TableMatriks";
+import NormalizeTable from "@/Components/Table/NormalizeTable";
 import AppLayout from "@/Layouts/AppLayout";
-import { Link } from "@inertiajs/inertia-react";
 
-export default function BobotNormalisasi(props) {
-    const headTable = ["No", "Nama", "Kriteria"];
+export default function BobotNormalisasi({ weightNorm }) {
+    const headTable = ["No", "Nama", "C1", "C2", "C3", "C4", "C5"];
     return (
-        <AppLayout titleContent="Bobot Normalisasi">
-            <Link href={"/data-matriks/create"}></Link>
-            <div className="p-3">
-                <TableMatriks head={headTable} data={props.matrices} />
+        <AppLayout titleContent="Normalisasi Terbobot">
+            <div className="px-2">
+                <NormalizeTable head={headTable} data={weightNorm} />
             </div>
         </AppLayout>
     );
