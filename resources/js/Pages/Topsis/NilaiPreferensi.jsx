@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/inertia-react";
 
 export default function JarakSolusiIdeal({ dplusmin }) {
     return (
-        <AppLayout titleContent="Jarak Solusi Ideal">
+        <AppLayout titleContent="Nilai Preferensi">
             <div className="px-2">
                 <table className="mx-2 mt-3">
                     <thead>
